@@ -5,7 +5,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets Concurrent Network PrintSupport XmlPatterns)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Gui Widgets Concurrent Network PrintSupport Xml Core5Compat)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets Concurrent Network PrintSupport Xml Core5Compat)
 
 # qscint 关键依赖库
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/qscint)
@@ -54,7 +55,17 @@ ${PROJECT_SOURCE_DIR}/src/qscint/scintilla/lexlib
 ${PROJECT_SOURCE_DIR}/src/qscint/scintilla/boostregex
 )
 
-target_link_libraries(${PROJECT_NAME} qscint Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Concurrent Qt5::Network  Qt5::PrintSupport Qt5::XmlPatterns)
+target_link_libraries(${PROJECT_NAME}
+    qscint
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Gui
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Concurrent
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::PrintSupport
+    Qt${QT_VERSION_MAJOR}::Xml
+    Qt${QT_VERSION_MAJOR}::Core5Compat
+)
 
 # set(PROJECT_BINARY_DIR "${PROJECT_BINARY_DIR}/bin")
 # set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)

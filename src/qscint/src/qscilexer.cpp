@@ -1,4 +1,4 @@
-﻿// This module implements the QsciLexer class.
+// This module implements the QsciLexer class.
 //
 // Copyright (c) 2021 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
@@ -907,7 +907,9 @@ const char* QsciLexer::getUserDefineKeywords()
 
 	QString userLangFile = QString("notepad/userlang/%1").arg(m_tagName);//自定义语言中不能有.字符，否则可能有错，后续要检查
 	QSettings qs(QSettings::IniFormat, QSettings::UserScope, userLangFile);
-	qs.setIniCodec("UTF-8");
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
+  qs->setIniCodec("UTF-8");
+#endif
 
 	if (!qs.contains("mz"))
 	{

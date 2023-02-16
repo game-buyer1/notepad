@@ -1,4 +1,4 @@
-﻿#include "ccnotepad.h"
+#include "ccnotepad.h"
 #include "nddsetting.h"
 #include "styleset.h"
 
@@ -23,11 +23,20 @@
 
 #ifdef Q_OS_WIN
 #pragma comment(lib, "user32.lib")
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
 #if _DEBUG
 #pragma comment(lib, "qmyedit_qt5d.lib")
 #else
 #pragma comment(lib, "qmyedit_qt5.lib")
 #endif
+#else
+#if _DEBUG
+#pragma comment(lib, "qmyedit_qt6d.lib")
+#else
+#pragma comment(lib, "qmyedit_qt6.lib")
+#endif
+#endif
+
 #include <qt_windows.h>
 const ULONG_PTR CUSTOM_TYPE = 10000;
 const ULONG_PTR OPEN_NOTEPAD_TYPE = 10001;

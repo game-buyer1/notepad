@@ -1,9 +1,10 @@
-﻿#include "draglineedit.h"
+#include "draglineedit.h"
+#include <QFile>
 
 DragLineEdit::DragLineEdit(QWidget *parent)
-	: QLineEdit(parent)
+    : QLineEdit(parent)
 {
-	setAcceptDrops(true);
+    setAcceptDrops(true);
 }
 
 DragLineEdit::~DragLineEdit()
@@ -28,25 +29,25 @@ void DragLineEdit::dragMoveEvent(QDragMoveEvent* )
 
 void DragLineEdit::dropEvent(QDropEvent* e)
 {
-	QList<QUrl> urls = e->mimeData()->urls();
-	if (urls.isEmpty())
-		return;
+    QList<QUrl> urls = e->mimeData()->urls();
+    if (urls.isEmpty())
+        return;
 
-	QString fileName = urls.first().toLocalFile();
+    QString fileName = urls.first().toLocalFile();
 
-	if (fileName.isEmpty())
-	{
-		return;
-	}
+    if (fileName.isEmpty())
+    {
+        return;
+    }
 
-	if (!QFile::exists(fileName))
-	{
-		return;
-	}
+    if (!QFile::exists(fileName))
+    {
+        return;
+    }
 
-	this->setText(fileName);
+    this->setText(fileName);
 
-	e->accept();
+    e->accept();
 
-	emit this->returnPressed();
+    emit this->returnPressed();
 }

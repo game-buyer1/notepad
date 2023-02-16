@@ -5,7 +5,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets PrintSupport)
+find_package(Qt$ NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Gui Widgets PrintSupport)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets PrintSupport)
 
 aux_source_directory(${PROJECT_SOURCE_DIR}/src SRC)
 aux_source_directory(${PROJECT_SOURCE_DIR}/scintilla/lexers SRC)
@@ -35,12 +36,18 @@ ${PROJECT_SOURCE_DIR}/src/Qsci
 ${PROJECT_SOURCE_DIR}/scintilla/src
 ${PROJECT_SOURCE_DIR}/scintilla/include)
 
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Concurrent Qt5::Network Qt5::PrintSupport)
+target_link_libraries(${PROJECT_NAME}
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Gui
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Concurrent
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::PrintSupport)
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
     set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "qmyedit_qt5")
 else()
-    set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "qmyedit_qt5d")
+    set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "qmyedit_qt${QT_VERSION_MAJOR}d")
 endif()
 
 
