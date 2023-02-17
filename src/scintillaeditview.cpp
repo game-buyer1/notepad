@@ -3307,8 +3307,8 @@ bool isUrlQueryDelimiter(QChar const c)
 
 void scanToUrlEnd(QString & text, int textLen, int start, int* distance)
 {
-	int p = start;
-	QChar q = 0;
+    int p = start;
+    QChar q{0};
 	enum { sHostAndPath, sQuery, sQueryAfterDelimiter, sQueryQuotes, sQueryAfterQuotes, sFragment } s = sHostAndPath;
 	while (p < textLen)
 	{

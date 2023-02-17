@@ -281,7 +281,7 @@ quint32 CmpareMode::readLineFromFileWithUnicodeLe(uchar* m_fileFpr, const int fi
 		else if (mode == 2)
 		{
 			QString temp = lineInfo.unicodeStr;
-			md4.addData(temp.replace(QRegExp("\\s"), QString("")).toUtf8());
+            md4.addData(temp.replace(QRegularExpression("\\s"), QString("")).toUtf8());
 		}
 	};
 
@@ -529,7 +529,7 @@ CODE_ID CmpareMode::readLineFromFile(uchar* m_fileFpr, const int fileLength, con
 		else if (mode == 2)
 		{
 			QString temp = lineInfo.unicodeStr;
-			md4.addData(temp.replace(QRegExp("\\s"), QString("")).toUtf8());
+            md4.addData(temp.replace(QRegularExpression("\\s"), QString("")).toUtf8());
 		}
 	};
 
