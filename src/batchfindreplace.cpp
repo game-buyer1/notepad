@@ -14,6 +14,7 @@ BatchFindReplace::BatchFindReplace(QWidget *parent)
 	ui.setupUi(this);
 
 	m_mainNotepad = dynamic_cast<CCNotePad*>(parent);
+    ui.findReplaceTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 BatchFindReplace::~BatchFindReplace()
