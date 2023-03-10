@@ -2,6 +2,7 @@
 
 #include <qsciscintilla.h>
 #include <Scintilla.h>
+#include <Platform.h>
 #include <QDragEnterEvent>
 #include <QDropEvent>
 
@@ -33,6 +34,14 @@ protected:
 	void dragEnterEvent(QDragEnterEvent * event);
 	void dropEvent(QDropEvent * e);
 
+	//! Re-implemented to handle mouse moves.
+	virtual void mouseMoveEvent(QMouseEvent* e);
+
+	//! Re-implemented to handle mouse presses.
+	virtual void mousePressEvent(QMouseEvent* e);
+
+	//! Re-implemented to handle mouse releases.
+	virtual void mouseReleaseEvent(QMouseEvent* e);
 
 private:
 	static bool _SciInit;
@@ -41,4 +50,9 @@ private:
 	SCINTILLA_PTR  m_pScintillaPtr = 0;
 
 	CCNotePad* m_NoteWin;
+
+	bool selecting = false;
+
+	Scintilla::Point m_SelFrom;
+	Scintilla::Point m_SelTo;
 };
