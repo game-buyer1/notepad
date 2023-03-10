@@ -43,12 +43,15 @@ ShortcutKeyMgr::ShortcutKeyMgr(QWidget *parent)
 
 	connect(ui.tableWidget, &QTableWidget::itemDoubleClicked, this, &ShortcutKeyMgr::slot_edit);
 
-	ui.tableWidget->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
-	ui.tableWidget->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
-	ui.tableWidget->horizontalHeader()->setSectionResizeMode(2, QHeaderView::ResizeToContents);
-	ui.qscintTableWidget->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
-	ui.qscintTableWidget->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
-	ui.qscintTableWidget->horizontalHeader()->setSectionResizeMode(2, QHeaderView::ResizeToContents);
+//	ui.tableWidget->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+//	ui.tableWidget->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
+//	ui.tableWidget->horizontalHeader()->setSectionResizeMode(2, QHeaderView::ResizeToContents);
+//	ui.qscintTableWidget->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+//	ui.qscintTableWidget->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
+//	ui.qscintTableWidget->horizontalHeader()->setSectionResizeMode(2, QHeaderView::ResizeToContents);
+
+    ui.tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui.qscintTableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
 
 	QString tabQss = "QHeaderView::section{"

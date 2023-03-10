@@ -144,6 +144,8 @@ void EncodeConvert::slot_selectFile()
 
 	if (!rootpath.isEmpty())
 	{
+        ui.lineEdit->setText(rootpath);
+
 		ui.treeWidget->clear();
 
 		m_fileAttris.clear();
