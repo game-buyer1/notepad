@@ -7387,7 +7387,7 @@ void CCNotePad::slot_gotoline()
 		int lineCounts = 2147483647;
 
 		bool ok;
-		int num = QInputDialog::getInt(this, tr("Go to line"), tr("Line Num:"), 1, 1, lineCounts, 1, &ok);
+        int num = QInputDialog::getInt(this, tr("Go to line"), tr("Line Num:"), 1, 1, lineCounts, 1, &ok,Qt::WindowCloseButtonHint);
 		if (ok)
 		{
 

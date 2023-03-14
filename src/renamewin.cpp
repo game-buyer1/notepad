@@ -19,6 +19,8 @@ ReNameWin::ReNameWin(QWidget *parent)
 	connect(ui.radioButtonDelSuffix, &QRadioButton::toggled, this, [this](bool status) {slot_renameOptionsChange(4, status); });
 	connect(ui.radioButtonLower, &QRadioButton::toggled, this, [this](bool status) {slot_renameOptionsChange(5, status); });
 	connect(ui.radioButtonUpper, &QRadioButton::toggled, this, [this](bool status) {slot_renameOptionsChange(6, status); });
+
+    ui.radioButtonAddPrefix->toggled(true);
 }
 
 ReNameWin::~ReNameWin()
@@ -63,7 +65,7 @@ void ReNameWin::slot_renameOptionsChange(int id, bool status)
 void ReNameWin::slot_userDefineExt()
 {
 	bool ok = false;
-	QString text = QInputDialog::getText(this, tr("input file ext()"), tr("ext (Start With .)"), QLineEdit::Normal, QString(".cpp"), &ok);
+    QString text = QInputDialog::getText(this, tr("input file ext()"), tr("ext (Start With .)"), QLineEdit::Normal, QString(".cpp"), &ok,Qt::WindowCloseButtonHint);
 
 	if (ok && !text.isEmpty())
 	{

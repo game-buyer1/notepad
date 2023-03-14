@@ -102,7 +102,7 @@ void LangStyleDefine::loadUserLangs()
 
 void LangStyleDefine::slot_new()
 {
-	QString name = QInputDialog::getText(this, tr("Create New Languages"), tr("Please Input Languages Name"));
+    QString name = QInputDialog::getText(this, tr("Create New Languages"), tr("Please Input Languages Name"),QLineEdit::Normal,QString(),nullptr,Qt::WindowCloseButtonHint);
 
 	if (!name.isEmpty())
 	{

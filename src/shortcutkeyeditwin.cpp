@@ -5,8 +5,11 @@
 ShortcutKeyEditWin::ShortcutKeyEditWin(QWidget *parent)
 	: QDialog(parent)
 {
-	ui.setupUi(this);
+    ui.setupUi(this);
 	ui.keySequenceEdit->setFocus();
+    Qt::WindowFlags flags = Qt::Dialog;
+    flags |= Qt::WindowCloseButtonHint;
+    setWindowFlags(flags);
 }
 
 ShortcutKeyEditWin::~ShortcutKeyEditWin()
