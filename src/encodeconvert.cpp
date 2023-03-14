@@ -109,7 +109,7 @@ void EncodeConvert::slot_itemClicked(QTreeWidgetItem* item, int /*column*/)
 void EncodeConvert::slot_userDefineExt()
 {
 	bool ok = false;
-	QString text = QInputDialog::getText(this, tr("input file ext()"),tr("ext (Split With :)"), QLineEdit::Normal, QString(".h:.cpp"), &ok);
+    QString text = QInputDialog::getText(this, tr("input file ext()"),tr("ext (Split With :)"), QLineEdit::Normal, QString(".h:.cpp"), &ok,Qt::WindowCloseButtonHint);
 
 	if (ok && !text.isEmpty())
 	{

@@ -6,6 +6,9 @@ ProgressWin::ProgressWin(QWidget *parent)
 	: QDialog(parent), m_curStep(0),m_isCancel(false)
 {
 	ui.setupUi(this);
+    Qt::WindowFlags flags = Qt::Dialog;
+    flags |= Qt::WindowCloseButtonHint;
+    setWindowFlags(flags);
 }
 
 ProgressWin::~ProgressWin()

@@ -247,7 +247,7 @@ void DocTypeListView::slot_customContextMenuRequested(const QPoint& /*pos*/)
 void DocTypeListView::slot_addCustomType()
 {
 	bool ok = false;
-	QString text = QInputDialog::getText(this, tr("input file ext()"), tr("ext (Split With :)"), QLineEdit::Normal, QString(".h:.cpp"), &ok);
+    QString text = QInputDialog::getText(this, tr("input file ext()"), tr("ext (Split With :)"), QLineEdit::Normal, QString(".h:.cpp"), &ok,Qt::WindowCloseButtonHint);
 
 	if (ok && !text.isEmpty())
 	{

@@ -7,7 +7,7 @@ ColumnEdit::ColumnEdit(QWidget *parent)
 	ui.setupUi(this);
 
 	connect(ui.addPrefix, &QCheckBox::stateChanged, this, &ColumnEdit::slot_addPrefix);
-	connect(ui.is16, &QRadioButton::clicked, this, &ColumnEdit::slot_bigChar);
+    connect(ui.is16, &QRadioButton::toggled, this, &ColumnEdit::slot_bigChar);
 }
 
 ColumnEdit::~ColumnEdit()
