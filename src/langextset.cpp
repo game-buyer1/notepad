@@ -18,6 +18,7 @@ LangExtSet::LangExtSet(QWidget *parent)
 	ui.setupUi(this);
 
 	ui.langTableWidget->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
+    ui.langTableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 	initLangName();
 
 	connect(ui.langTableWidget, &QTableWidget::itemChanged, this, &LangExtSet::slot_itemChanged);
